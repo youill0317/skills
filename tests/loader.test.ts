@@ -21,6 +21,14 @@ test("loadSkill reads report-writer metadata and body", async () => {
   assert.ok(skill.body.includes("Section Standard"));
 });
 
+test("loadSkill reads plan-skill metadata and body", async () => {
+  const skill = await loadSkill(skillsRoot, "plan-skill");
+  assert.equal(skill.id, "plan-skill");
+  assert.equal(skill.name, "plan-skill");
+  assert.ok(skill.description.includes("decision-complete execution plans"));
+  assert.ok(skill.body.includes("Planning Workflow"));
+});
+
 test("listSkillManifests returns installed starter skills", async () => {
   const manifests = await listSkillManifests(skillsRoot);
   const ids = manifests.map((item) => item.id);
@@ -28,6 +36,7 @@ test("listSkillManifests returns installed starter skills", async () => {
   assert.ok(ids.includes("document-summary"));
   assert.ok(ids.includes("research-mode"));
   assert.ok(ids.includes("report-writer"));
+  assert.ok(ids.includes("plan-skill"));
 
   const researchMode = manifests.find((item) => item.id === "research-mode");
   assert.ok(researchMode);
@@ -36,4 +45,9 @@ test("listSkillManifests returns installed starter skills", async () => {
   const reportWriter = manifests.find((item) => item.id === "report-writer");
   assert.ok(reportWriter);
   assert.ok(reportWriter.references.includes("references/research-report.md"));
+
+  const planSkill = manifests.find((item) => item.id === "plan-skill");
+  assert.ok(planSkill);
+  assert.ok(planSkill.references.includes("references/plan-template.md"));
+  assert.ok(planSkill.references.includes("references/decision-rules.md"));
 });

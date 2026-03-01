@@ -9,7 +9,7 @@ test("buildListSkillsResult returns sorted skills with count", async () => {
   const result = await buildListSkillsResult(skillsRoot);
 
   assert.equal(result.count, result.skills.length);
-  assert.ok(result.skills.length >= 4);
+  assert.ok(result.skills.length >= 5);
   assert.equal(result.warnings.length, 0);
 
   const ids = result.skills.map((item) => item.id);
@@ -19,6 +19,7 @@ test("buildListSkillsResult returns sorted skills with count", async () => {
   assert.ok(ids.includes("document-summary"));
   assert.ok(ids.includes("research-mode"));
   assert.ok(ids.includes("report-writer"));
+  assert.ok(ids.includes("plan-skill"));
 
   for (const skill of result.skills) {
     assert.ok(Array.isArray(skill.references));
@@ -35,4 +36,9 @@ test("buildListSkillsResult returns sorted skills with count", async () => {
   const reportWriter = result.skills.find((item) => item.id === "report-writer");
   assert.ok(reportWriter);
   assert.ok((reportWriter.references ?? []).includes("references/research-report.md"));
+
+  const planSkill = result.skills.find((item) => item.id === "plan-skill");
+  assert.ok(planSkill);
+  assert.ok((planSkill.references ?? []).includes("references/plan-template.md"));
+  assert.ok((planSkill.references ?? []).includes("references/decision-rules.md"));
 });
