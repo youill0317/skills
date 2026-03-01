@@ -13,9 +13,10 @@ test("loadSkill reads frontmatter and body", async () => {
   assert.ok(skill.body.includes("Document QA Workflow"));
 });
 
-test("listSkillManifests returns both starter skills", async () => {
+test("listSkillManifests returns installed starter skills", async () => {
   const manifests = await listSkillManifests(skillsRoot);
   const ids = manifests.map((item) => item.id);
   assert.ok(ids.includes("document-qa"));
   assert.ok(ids.includes("document-summary"));
+  assert.ok(ids.includes("research-mode"));
 });

@@ -9,7 +9,7 @@ test("buildListSkillsResult returns sorted skills with count", async () => {
   const result = await buildListSkillsResult(skillsRoot);
 
   assert.equal(result.count, result.skills.length);
-  assert.ok(result.skills.length >= 2);
+  assert.ok(result.skills.length >= 3);
   assert.equal(result.warnings.length, 0);
 
   const ids = result.skills.map((item) => item.id);
@@ -17,4 +17,5 @@ test("buildListSkillsResult returns sorted skills with count", async () => {
   assert.deepEqual(ids, sorted);
   assert.ok(ids.includes("document-qa"));
   assert.ok(ids.includes("document-summary"));
+  assert.ok(ids.includes("research-mode"));
 });
