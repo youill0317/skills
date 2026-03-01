@@ -13,6 +13,7 @@ import { loadConfig, resolvePathWithinRoot, resolveSkillsRoot, validateSkillId }
 import { compileInstructions, type ReferenceLoad } from "./skills/compiler.js";
 import { loadSkill, listSkillManifests } from "./skills/loader.js";
 import { runSkillScript } from "./skills/executor.js";
+import { buildListSkillsResult } from "./skills/list-skills.js";
 
 const RUN_SKILL_TOOL = {
   name: "run_skill",
@@ -60,6 +61,16 @@ const RUN_SKILL_TOOL = {
       }
     },
     required: ["skill_id", "task"],
+    additionalProperties: false
+  }
+};
+
+const LIST_SKILLS_TOOL = {
+  name: "list_skills",
+  description: "List installed skills with id, name, and description.",
+  inputSchema: {
+    type: "object",
+    properties: {},
     additionalProperties: false
   }
 };
@@ -200,7 +211,7 @@ async function main(): Promise<void> {
 
   server.setRequestHandler(ListToolsRequestSchema, async () => {
     return {
-      tools: [RUN_SKILL_TOOL]
+      tools: [LIST_SKILLS_TOOL, RUN_SKILL_TOOL]
     };
   });
 
@@ -272,6 +283,59 @@ async function main(): Promise<void> {
   });
 
   server.setRequestHandler(CallToolRequestSchema, async (request) => {
+    if (request.params.name === LIST_SKILLS_TOOL.name) {
+      const startedAt = Date.now();
+      try {
+        const result = await buildListSkillsResult(skillsRoot);
+
+        const durationMs = Date.now() - startedAt;
+        logEvent({
+          tool: LIST_SKILLS_TOOL.name,
+          duration_ms: durationMs,
+          status: "ok",
+          count: result.count,
+          warnings_count: result.warnings.length
+        });
+
+        return {
+          content: [
+            {
+              type: "text",
+              text: JSON.stringify(result, null, 2)
+            }
+          ]
+        };
+      } catch (error) {
+        const durationMs = Date.now() - startedAt;
+        const message = (error as Error).message;
+
+        logEvent({
+          tool: LIST_SKILLS_TOOL.name,
+          duration_ms: durationMs,
+          status: "error",
+          error_code: "LIST_SKILLS_FAILED",
+          error: message
+        });
+
+        return {
+          isError: true,
+          content: [
+            {
+              type: "text",
+              text: JSON.stringify(
+                {
+                  error_code: "LIST_SKILLS_FAILED",
+                  message
+                },
+                null,
+                2
+              )
+            }
+          ]
+        };
+      }
+    }
+
     if (request.params.name !== RUN_SKILL_TOOL.name) {
       throw new Error(`Unsupported tool '${request.params.name}'.`);
     }
