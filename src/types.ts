@@ -42,6 +42,7 @@ export interface RunSkillResult {
   skill_name: string;
   skill_description: string;
   compiled_instructions: string;
+  available_references: string[];
   loaded_references: Array<{ path: string; bytes: number }>;
   script_result?: ScriptExecutionResult;
   warnings: string[];

@@ -19,4 +19,8 @@ test("listSkillManifests returns installed starter skills", async () => {
   assert.ok(ids.includes("document-qa"));
   assert.ok(ids.includes("document-summary"));
   assert.ok(ids.includes("research-mode"));
+
+  const researchMode = manifests.find((item) => item.id === "research-mode");
+  assert.ok(researchMode);
+  assert.ok(researchMode.references.includes("references/search-playbook.md"));
 });

@@ -4,6 +4,7 @@ export interface ListSkillItem {
   id: string;
   name: string;
   description: string;
+  references: string[];
 }
 
 export interface ListSkillsResult {
@@ -18,7 +19,8 @@ export async function buildListSkillsResult(skillsRoot: string): Promise<ListSki
     .map((manifest) => ({
       id: manifest.id,
       name: manifest.name,
-      description: manifest.description
+      description: manifest.description,
+      references: manifest.references
     }))
     .sort((a, b) => a.id.localeCompare(b.id));
 

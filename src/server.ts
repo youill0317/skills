@@ -67,7 +67,7 @@ const RUN_SKILL_TOOL = {
 
 const LIST_SKILLS_TOOL = {
   name: "list_skills",
-  description: "List installed skills with id, name, and description.",
+  description: "List installed skills with id, name, description, and available reference paths.",
   inputSchema: {
     type: "object",
     properties: {},
@@ -243,7 +243,8 @@ async function main(): Promise<void> {
       const payload = manifests.map((manifest) => ({
         id: manifest.id,
         name: manifest.name,
-        description: manifest.description
+        description: manifest.description,
+        references: manifest.references
       }));
       return {
         contents: [
@@ -378,6 +379,7 @@ async function main(): Promise<void> {
         skill_name: skill.name,
         skill_description: skill.description,
         compiled_instructions: compiledInstructions,
+        available_references: skill.references,
         loaded_references: referenceResult.references.map((reference) => ({
           path: reference.path,
           bytes: reference.bytes
