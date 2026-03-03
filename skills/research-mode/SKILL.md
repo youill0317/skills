@@ -24,6 +24,29 @@ Gather exhaustive information with aggressive search coverage and strict verific
 5. Flag discrepancies between language-specific findings.
 6. Return the final answer in the user's original language.
 
+## Source Reliability Ranking
+
+When evaluating conflicting sources, apply this priority order:
+
+1. Official documentation, standards bodies, government publications.
+2. Peer-reviewed academic papers and journals.
+3. Established industry reports and whitepapers.
+4. Major news organizations with editorial oversight.
+5. Domain expert blogs and conference talks.
+6. Community forums, wikis, and user-generated content.
+
+Lower-ranked sources can override higher-ranked ones only when they provide more recent and verifiable data.
+
+## Domain-Specific Hints
+
+Adapt search strategy by domain:
+
+- **Technology**: prioritize official docs, changelogs, and release notes. Check version-specific information.
+- **Legal/Regulatory**: prioritize government sources and legal databases. Check jurisdiction and effective dates.
+- **Medical/Health**: prioritize peer-reviewed journals and health authority guidelines. Flag non-expert claims.
+- **Financial**: prioritize regulatory filings and official reports. Verify currency and time period.
+- **General/Current Events**: prioritize major news sources. Cross-check across outlets for bias detection.
+
 ## Execution Pattern
 
 For every query, execute these search rounds:
@@ -65,3 +88,4 @@ For every query, execute these search rounds:
 - Load `references/search-playbook.md` for query planning and search execution checklists.
 - Load `references/response-template.md` for output structure and citation formatting.
 - Load `references/discrepancy-policy.md` when sources disagree or translations diverge.
+- Load `references/source-ranking.md` for detailed source evaluation criteria.
