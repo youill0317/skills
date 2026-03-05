@@ -1,5 +1,6 @@
 import { readFile } from "node:fs/promises";
 import path from "node:path";
+import { fileURLToPath } from "node:url";
 import {
   CallToolRequestSchema,
   ListResourcesRequestSchema,
@@ -191,10 +192,13 @@ function skillIdFromManifestUri(uri: string): string | null {
 }
 
 async function main(): Promise<void> {
-  const cwd = process.cwd();
-  const configPath = path.resolve(cwd, "config", "mcp-skills.config.json");
+  const __filename = fileURLToPath(import.meta.url);
+  const __dirname = path.dirname(__filename);
+  // dist/server.js -> project root (one level up from dist/)
+  const projectRoot = path.resolve(__dirname, "..");
+  const configPath = path.resolve(projectRoot, "config", "mcp-skills.config.json");
   const config = await loadConfig(configPath);
-  const skillsRoot = resolveSkillsRoot(cwd, config.skillsRoot);
+  const skillsRoot = resolveSkillsRoot(projectRoot, config.skillsRoot);
 
   const server = new Server(
     {
