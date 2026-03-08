@@ -17,10 +17,11 @@ Use `mcp_search` tools accurately, with the minimum necessary retrieval and the 
 ## Operating Rules
 
 1. Start with discovery tools before page extraction or crawling.
-2. Constrain by date, domain, topic, or identifier whenever the task allows it.
-3. Use academic tools for paper metadata, citations, and recommendation flows.
-4. Use `check_usage` when provider availability or quota is the blocker.
-5. Load only the provider reference files needed for the current task.
+2. Constrain by date, domain, topic, or identifier whenever the task allows it, UNLESS operating in Deep Research Mode.
+3. **Parallel Execution**: Leverage parallel tool calling to execute multiple searches concurrently. Do not execute searches sequentially if they are independent.
+4. Use academic tools for paper metadata, citations, and recommendation flows.
+5. Use `check_usage` when provider availability or quota is the blocker.
+6. Load only the provider reference files needed for the current task.
 
 ## Tool Families
 
@@ -32,6 +33,7 @@ Use `mcp_search` tools accurately, with the minimum necessary retrieval and the 
 
 ## Resource Loading
 
+- Load `references/deep-research-mode.md` when the user explicitly requests an exhaustive, highly aggressive, or bilingual deep research mode.
 - Load `references/brave.md` for Brave tools.
 - Load `references/tavily.md` for Tavily tools.
 - Load `references/exa.md` for Exa tools.
