@@ -63,6 +63,7 @@ For Detailed and Executive depths, add:
 
 ## Resource Loading
 
+- Pass only the needed `reference_paths` to `run_skill`; these files do not load automatically.
 - Load `references/summary-style.md` for style and formatting rules.
 - Load `references/summary-template.md` for output structure templates.
 - Load `references/extraction-rules.md` for key-point extraction criteria.

@@ -69,11 +69,13 @@ Use these tags when information is incomplete or risky:
 
 ## Integration
 
-1. If `research-mode` output is provided, preserve evidence confidence and unresolved conflicts.
+1. If `mcp-search` or `workflow-orchestrator` output is provided, preserve evidence confidence and unresolved conflicts.
 2. If `report-writer` output is provided, convert section findings into slide narrative without adding facts.
 3. If `paper-writing` output is provided, condense paper sections into audience-fit slide messages.
 
 ## Resource Loading
+
+Pass only the needed `reference_paths` to `run_skill`; these files do not load automatically.
 
 Load references in this order:
 

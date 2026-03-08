@@ -62,6 +62,8 @@ Use these tags when uncertainty is present:
 
 ## Resource Loading
 
+Pass only the needed `reference_paths` to `run_skill`; these files do not load automatically.
+
 Load references in this order:
 
 1. `references/problem-types.md`

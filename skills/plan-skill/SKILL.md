@@ -64,6 +64,7 @@ Always include:
 
 ## Resource Loading
 
+- Pass only the needed `reference_paths` to `run_skill`; these files do not load automatically.
 - Load `references/plan-template.md` for the full plan skeleton.
 - Load `references/decision-rules.md` for decision-complete quality checks.
 - Load `references/estimation-guide.md` for effort estimation standards.

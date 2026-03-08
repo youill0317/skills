@@ -10,12 +10,12 @@ Transform research outputs into clear, decision-ready reports.
 ## Scope
 
 1. Perform report writing only.
-2. Assume investigation was already completed (for example by `research-mode`).
+2. Assume investigation was already completed (for example by `mcp-search` or `workflow-orchestrator`).
 3. If critical evidence is missing, do not invent facts. Record gaps and request follow-up research items.
 
-## Integration with research-mode
+## Integration with evidence-collection skills
 
-When receiving input from `research-mode`:
+When receiving input from `mcp-search` or a `workflow-orchestrator` chain:
 
 1. Accept findings with existing citation markers and preserve them.
 2. Use confidence labels from research output to calibrate language strength.
@@ -62,6 +62,7 @@ Always use this order for research reports:
 
 ## Resource Loading
 
+- Pass only the needed `reference_paths` to `run_skill`; these files do not load automatically.
 - Load `references/research-report.md` for detailed section templates and formatting rules.
 - Load `references/report-types.md` for type-specific structure guides.
 - Load `references/tone-guide.md` for audience-appropriate writing style.

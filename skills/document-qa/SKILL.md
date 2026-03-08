@@ -51,6 +51,7 @@ Every response must include:
 
 ## Resource Loading
 
+- Pass only the needed `reference_paths` to `run_skill`; these files do not load automatically.
 - Load `references/qa-guidelines.md` for evidence handling and conflict rules.
 - Load `references/chunk-strategy.md` for long document processing.
 - Load `references/citation-format.md` for citation formatting standards.

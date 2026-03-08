@@ -19,7 +19,7 @@ import { buildListSkillsResult } from "./skills/list-skills.js";
 const RUN_SKILL_TOOL = {
   name: "run_skill",
   description:
-    "Run a skill-like workflow by loading SKILL.md instructions and optional references/scripts. Use this when the client does not support native skills yet.",
+    "Run a skill-like workflow by loading SKILL.md instructions and explicitly requested references or allow-listed scripts.",
   inputSchema: {
     type: "object",
     properties: {

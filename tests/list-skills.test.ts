@@ -17,9 +17,13 @@ test("buildListSkillsResult returns sorted skills with count", async () => {
   assert.deepEqual(ids, sorted);
   assert.ok(ids.includes("document-qa"));
   assert.ok(ids.includes("document-summary"));
-  assert.ok(ids.includes("research-mode"));
+  assert.ok(ids.includes("mcp-search"));
+  assert.ok(ids.includes("mcp-obsidian"));
+  assert.ok(ids.includes("mcp-skills"));
+  assert.ok(ids.includes("mcp-subagent"));
   assert.ok(ids.includes("report-writer"));
   assert.ok(ids.includes("plan-skill"));
+  assert.ok(ids.includes("workflow-orchestrator"));
 
   for (const skill of result.skills) {
     assert.ok(Array.isArray(skill.references));
@@ -29,9 +33,22 @@ test("buildListSkillsResult returns sorted skills with count", async () => {
     }
   }
 
-  const researchMode = result.skills.find((item) => item.id === "research-mode");
-  assert.ok(researchMode);
-  assert.ok((researchMode.references ?? []).includes("references/search-playbook.md"));
+  const mcpSearch = result.skills.find((item) => item.id === "mcp-search");
+  assert.ok(mcpSearch);
+  assert.ok((mcpSearch.references ?? []).includes("references/brave.md"));
+  assert.ok((mcpSearch.references ?? []).includes("references/scholar.md"));
+
+  const mcpObsidian = result.skills.find((item) => item.id === "mcp-obsidian");
+  assert.ok(mcpObsidian);
+  assert.ok((mcpObsidian.references ?? []).includes("references/discovery-and-navigation.md"));
+
+  const mcpSkills = result.skills.find((item) => item.id === "mcp-skills");
+  assert.ok(mcpSkills);
+  assert.ok((mcpSkills.references ?? []).includes("references/run-skill-guide.md"));
+
+  const mcpSubagent = result.skills.find((item) => item.id === "mcp-subagent");
+  assert.ok(mcpSubagent);
+  assert.ok((mcpSubagent.references ?? []).includes("references/delegate-task.md"));
 
   const reportWriter = result.skills.find((item) => item.id === "report-writer");
   assert.ok(reportWriter);
@@ -41,4 +58,8 @@ test("buildListSkillsResult returns sorted skills with count", async () => {
   assert.ok(planSkill);
   assert.ok((planSkill.references ?? []).includes("references/plan-template.md"));
   assert.ok((planSkill.references ?? []).includes("references/decision-rules.md"));
+
+  const workflowOrchestrator = result.skills.find((item) => item.id === "workflow-orchestrator");
+  assert.ok(workflowOrchestrator);
+  assert.ok((workflowOrchestrator.references ?? []).includes("references/chaining-patterns.md"));
 });

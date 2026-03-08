@@ -62,10 +62,12 @@ Always return:
 ## Integration
 
 1. Work independently by default.
-2. If `research-mode` output is provided, preserve evidence mappings and confidence notes.
+2. If `mcp-search` or `workflow-orchestrator` output is provided, preserve evidence mappings and confidence notes.
 3. If `report-writer` output is provided, re-structure to APA format without introducing new facts.
 
 ## Resource Loading
+
+Pass only the needed `reference_paths` to `run_skill`; these files do not load automatically.
 
 Load common references first:
 

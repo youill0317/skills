@@ -5,6 +5,7 @@ MCP server that provides two tools:
 - `run_skill`
 
 It loads `SKILL.md`-based workflows from `./skills` (configurable in `config/mcp-skills.config.json`).
+Reference files are loaded only when the caller passes `reference_paths` to `run_skill`.
 
 ## Install and Build
 

@@ -29,18 +29,51 @@ test("loadSkill reads plan-skill metadata and body", async () => {
   assert.ok(skill.body.includes("Planning Workflow"));
 });
 
+test("loadSkill reads mcp-search metadata and body", async () => {
+  const skill = await loadSkill(skillsRoot, "mcp-search");
+  assert.equal(skill.id, "mcp-search");
+  assert.equal(skill.name, "mcp-search");
+  assert.ok(skill.description.includes("mcp_search"));
+  assert.ok(skill.body.includes("Tool Families"));
+});
+
+test("loadSkill reads workflow-orchestrator metadata and body", async () => {
+  const skill = await loadSkill(skillsRoot, "workflow-orchestrator");
+  assert.equal(skill.id, "workflow-orchestrator");
+  assert.equal(skill.name, "workflow-orchestrator");
+  assert.ok(skill.description.includes("multi-skill workflows"));
+  assert.ok(skill.body.includes("Common Chains"));
+});
+
 test("listSkillManifests returns installed starter skills", async () => {
   const manifests = await listSkillManifests(skillsRoot);
   const ids = manifests.map((item) => item.id);
   assert.ok(ids.includes("document-qa"));
   assert.ok(ids.includes("document-summary"));
-  assert.ok(ids.includes("research-mode"));
+  assert.ok(ids.includes("mcp-search"));
+  assert.ok(ids.includes("mcp-obsidian"));
+  assert.ok(ids.includes("mcp-skills"));
+  assert.ok(ids.includes("mcp-subagent"));
   assert.ok(ids.includes("report-writer"));
   assert.ok(ids.includes("plan-skill"));
+  assert.ok(ids.includes("workflow-orchestrator"));
 
-  const researchMode = manifests.find((item) => item.id === "research-mode");
-  assert.ok(researchMode);
-  assert.ok(researchMode.references.includes("references/search-playbook.md"));
+  const mcpSearch = manifests.find((item) => item.id === "mcp-search");
+  assert.ok(mcpSearch);
+  assert.ok(mcpSearch.references.includes("references/brave.md"));
+  assert.ok(mcpSearch.references.includes("references/scholar.md"));
+
+  const mcpObsidian = manifests.find((item) => item.id === "mcp-obsidian");
+  assert.ok(mcpObsidian);
+  assert.ok(mcpObsidian.references.includes("references/read-and-link-tools.md"));
+
+  const mcpSkills = manifests.find((item) => item.id === "mcp-skills");
+  assert.ok(mcpSkills);
+  assert.ok(mcpSkills.references.includes("references/reference-loading-and-scripts.md"));
+
+  const mcpSubagent = manifests.find((item) => item.id === "mcp-subagent");
+  assert.ok(mcpSubagent);
+  assert.ok(mcpSubagent.references.includes("references/task-writing-guide.md"));
 
   const reportWriter = manifests.find((item) => item.id === "report-writer");
   assert.ok(reportWriter);
@@ -50,4 +83,8 @@ test("listSkillManifests returns installed starter skills", async () => {
   assert.ok(planSkill);
   assert.ok(planSkill.references.includes("references/plan-template.md"));
   assert.ok(planSkill.references.includes("references/decision-rules.md"));
+
+  const workflowOrchestrator = manifests.find((item) => item.id === "workflow-orchestrator");
+  assert.ok(workflowOrchestrator);
+  assert.ok(workflowOrchestrator.references.includes("references/chaining-patterns.md"));
 });
