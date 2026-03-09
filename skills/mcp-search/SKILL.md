@@ -33,6 +33,7 @@ Use `mcp_search` tools accurately, with the minimum necessary retrieval and the 
 
 ## Resource Loading
 
+- Load `references/quick-search-mode.md` when the user requests a simple, fast, or multi-engine overview/definition query.
 - Load `references/deep-research-mode.md` when the user explicitly requests an exhaustive, highly aggressive, or bilingual deep research mode.
 - Load `references/brave.md` for Brave tools.
 - Load `references/tavily.md` for Tavily tools.
