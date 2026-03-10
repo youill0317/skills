@@ -6,7 +6,7 @@ category: task
 
 # Mission
 
-Run external research workflows that balance speed, coverage, and verification without confusing retrieval strategy with provider-specific tool guidance.
+Run external research workflows that balance speed, coverage, and verification across built-in web search and external tools without confusing strategy with provider-specific tool guidance.
 
 ## Category
 
@@ -22,7 +22,7 @@ Run external research workflows that balance speed, coverage, and verification w
 
 1. Define the research mode, query decomposition, verification depth, and synthesis discipline for external research tasks.
 2. Support fast overview work and exhaustive multi-pass research.
-3. Keep provider-specific tool details out of this skill; defer those to `search-mcp`.
+3. Keep provider-specific MCP parameter details out of this skill; defer those to `search-mcp` while still deciding when built-in web search vs MCP vs hybrid should be used.
 4. Produce research findings or a research execution guide, not polished final deliverables.
 
 ## Core Workflow
@@ -31,10 +31,11 @@ Run external research workflows that balance speed, coverage, and verification w
 2. Identify whether the domain playbook should be literature search, news search, or general web.
 3. Break the task into the smallest set of answerable sub-questions.
 4. Decide what needs breadth, what needs verification, and what needs freshness checks.
-5. Use `search-mcp` whenever provider choice, tool family, or provider-specific parameterization is unclear.
-6. Run retrieval in passes: discovery, focused verification, and contradiction handling as needed.
-7. Separate confirmed findings, open questions, and unresolved conflicts.
-8. Return research output that downstream task skills can consume without re-running the same search logic.
+5. Choose retrieval stack by phase: built-in only, MCP only, or hybrid (fallback to MCP only when built-in search is unavailable).
+6. Use `search-mcp` whenever provider choice, tool family, or provider-specific parameterization is unclear.
+7. Run retrieval in passes: discovery, focused verification, and contradiction handling as needed.
+8. Separate confirmed findings, open questions, and unresolved conflicts.
+9. Return research output that downstream task skills can consume without re-running the same search logic.
 
 ## Output Standard
 
@@ -48,12 +49,15 @@ Research rules:
 
 - Prefer quick search for overview, simple comparisons, and low-stakes scans.
 - Prefer deep research when accuracy, disagreement handling, or coverage matters.
+- Use built-in web search for rapid discovery and broad triangulation.
+- Use MCP tools when you need provider-specific capabilities (semantic relatedness, extraction/crawl, paper graphs, or vertical search).
+- Use hybrid retrieval when fast discovery and robust verification are both required and built-in search is available.
 - Keep factual findings separate from interpretation.
 - Re-run focused searches when contradictions or freshness risks remain.
 
 ## Integration
 
-1. Use `search-mcp` when provider/tool choice is the blocker.
+1. Use `search-mcp` when provider/tool choice is the blocker, especially in hybrid plans.
 2. Feed completed findings into `report-writing`, `planning`, `presentation-design`, or `academic-writing`.
 3. Use with `problem-definition` when validation questions require external evidence.
 
