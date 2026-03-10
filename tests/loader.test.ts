@@ -61,6 +61,15 @@ test("loadSkill reads obsidian-mcp metadata and body", async () => {
   assert.ok(skill.body.includes("## Category"));
 });
 
+test("loadSkill reads obsidian-note-linking metadata and body", async () => {
+  const skill = await loadSkill(skillsRoot, "obsidian-note-linking");
+  assert.equal(skill.id, "obsidian-note-linking");
+  assert.equal(skill.name, "Obsidian Note Linking");
+  assert.equal(skill.category, "task");
+  assert.ok(skill.description.includes("consistent connection patterns"));
+  assert.ok(skill.body.includes("## Output Standard"));
+});
+
 test("listSkillManifests returns installed skills with categories", async () => {
   const manifests = await listSkillManifests(skillsRoot);
   const ids = manifests.map((item) => item.id);
@@ -69,6 +78,7 @@ test("listSkillManifests returns installed skills with categories", async () => 
   assert.ok(ids.includes("search-mcp"));
   assert.ok(ids.includes("research-strategy"));
   assert.ok(ids.includes("obsidian-mcp"));
+  assert.ok(ids.includes("obsidian-note-linking"));
   assert.ok(ids.includes("report-writing"));
   assert.ok(ids.includes("planning"));
   assert.ok(ids.includes("academic-writing"));
@@ -98,6 +108,12 @@ test("listSkillManifests returns installed skills with categories", async () => 
   assert.ok(reportWriting);
   assert.equal(reportWriting.category, "task");
   assert.ok(reportWriting.references.includes("references/research-report.md"));
+
+  const obsidianNoteLinking = manifests.find((item) => item.id === "obsidian-note-linking");
+  assert.ok(obsidianNoteLinking);
+  assert.equal(obsidianNoteLinking.category, "task");
+  assert.ok(obsidianNoteLinking.references.includes("references/link-scoring-rubric.md"));
+  assert.ok(obsidianNoteLinking.references.includes("references/output-template.md"));
 
   const planning = manifests.find((item) => item.id === "planning");
   assert.ok(planning);
