@@ -7,7 +7,7 @@ Use this guide when note filenames include numeric order prefixes.
 - `0.Title`, `1.Title`, `2.Title`
 - zero-padded variants like `01.Title`, `02.Title`
 - hierarchical variants like `1.1Title`, `1.2Title`, `2.1Title`
-- mixed examples such as `0.OT`, `01.팀플`, `1.1주차자료`
+- mixed examples such as `0.Overview`, `01.TeamProject`, `1.1WeeklyNotes`
 
 ## Parsing Rule
 
@@ -34,14 +34,14 @@ Place sequence links at the bottom of each note in a dedicated block:
 
 ```markdown
 ---
-## Navigation
-- 이전: [[Prev Note]]
-- 다음: [[Next Note]]
-- 상위: [[Parent Note]]
-- 관련: [[Sibling A]] · [[Sibling B]]
+## {navigation-heading}
+- {previous-label}: [[Prev Note]]
+- {next-label}: [[Next Note]]
+- {parent-label}: [[Parent Note]]
+- {related-label}: [[Sibling A]], [[Sibling B]]
 ```
 
-Only include entries that can be verified from existing note names.
+Keep the documentation in English, but choose the rendered heading and labels to match the vault's dominant language or existing footer convention. Only include entries that can be verified from existing note names.
 
 ## Conflict Rules
 

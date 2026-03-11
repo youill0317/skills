@@ -17,7 +17,7 @@ Improve note connectivity in Obsidian by proposing high-signal, consistent conne
 - The user wants to strengthen a current note with related note connections.
 - The user asks which existing notes should be connected and how.
 - The user wants tag suggestions aligned with vault conventions.
-- The user organizes notes with numeric prefixes (for example `0.OT`, `01.팀플`, `1.1주차자료`) and wants previous/next navigation.
+- The user organizes notes with numeric prefixes (for example `0.Overview`, `01.TeamProject`, `1.1WeeklyNotes`) and wants previous/next navigation.
 - The user wants practical next-step edits for Obsidian notes.
 
 ## Scope

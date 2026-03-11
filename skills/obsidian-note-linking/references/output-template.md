@@ -7,20 +7,20 @@ Use this structure when returning recommendations.
 - Primary form: `[[Note]]`
 - Escalation forms: `[[Note#Heading]]`, `[[Note#^block-id]]`, `![[Note]]`
 - Tag style: lowercase kebab-case
-- Navigation footer labels: `이전`, `다음`, `상위`, `관련`
+- Navigation footer heading and labels: match the vault's dominant language or existing footer convention
 - Note: apply the same policy to all notes unless user requested a change.
 
 ## 1) Sequence Navigation Links
 
-- 이전: `[[Prev Note]]`
-- 다음: `[[Next Note]]`
-- 상위: `[[Parent Note]]` (if applicable)
-- 관련: `[[Sibling A]] · [[Sibling B]]`
+- `{previous-label}`: `[[Prev Note]]`
+- `{next-label}`: `[[Next Note]]`
+- `{parent-label}`: `[[Parent Note]]` (if applicable)
+- `{related-label}`: `[[Sibling A]]`, `[[Sibling B]]`
 
 ## 2) Top Connection Candidates
 
-- `[[Note A]]` — why this note matters to the current note.
-- `[[Note B#Key Heading]]` — why this section-level connection is better than whole-note link.
+- `[[Note A]]` - why this note matters to the current note.
+- `[[Note B#Key Heading]]` - why this section-level connection is better than whole-note link.
 
 ## 3) Suggested Placement
 
@@ -39,11 +39,11 @@ Use this structure when returning recommendations.
 
 ```markdown
 ---
-## Navigation
-- 이전: [[Prev Note]]
-- 다음: [[Next Note]]
-- 상위: [[Parent Note]]
-- 관련: [[Sibling A]] · [[Sibling B]]
+## {navigation-heading}
+- {previous-label}: [[Prev Note]]
+- {next-label}: [[Next Note]]
+- {parent-label}: [[Parent Note]]
+- {related-label}: [[Sibling A]], [[Sibling B]]
 
 ## Tags
 #tag1 #tag2 #tag3
