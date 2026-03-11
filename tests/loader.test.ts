@@ -70,6 +70,33 @@ test("loadSkill reads obsidian-note-linking metadata and body", async () => {
   assert.ok(skill.body.includes("## Output Standard"));
 });
 
+test("loadSkill reads pdf-markdown-remediation metadata and body", async () => {
+  const skill = await loadSkill(skillsRoot, "pdf-markdown-remediation");
+  assert.equal(skill.id, "pdf-markdown-remediation");
+  assert.equal(skill.name, "PDF Markdown Remediation");
+  assert.equal(skill.category, "task");
+  assert.ok(skill.description.includes("copied or extracted from PDFs"));
+  assert.ok(skill.body.includes("## Resource Loading"));
+});
+
+test("loadSkill reads markdown-format-normalization metadata and body", async () => {
+  const skill = await loadSkill(skillsRoot, "markdown-format-normalization");
+  assert.equal(skill.id, "markdown-format-normalization");
+  assert.equal(skill.name, "Markdown Format Normalization");
+  assert.equal(skill.category, "task");
+  assert.ok(skill.description.includes("existing Markdown"));
+  assert.ok(skill.body.includes("## Integration"));
+});
+
+test("loadSkill reads note-exam-prep metadata and body", async () => {
+  const skill = await loadSkill(skillsRoot, "note-exam-prep");
+  assert.equal(skill.id, "note-exam-prep");
+  assert.equal(skill.name, "Note Exam Prep");
+  assert.equal(skill.category, "task");
+  assert.ok(skill.description.includes("multiple-choice"));
+  assert.ok(skill.body.includes("collapsible answer-and-explanation block"));
+});
+
 test("listSkillManifests returns installed skills with categories", async () => {
   const manifests = await listSkillManifests(skillsRoot);
   const ids = manifests.map((item) => item.id);
@@ -84,6 +111,8 @@ test("listSkillManifests returns installed skills with categories", async () => 
   assert.ok(ids.includes("academic-writing"));
   assert.ok(ids.includes("presentation-design"));
   assert.ok(ids.includes("problem-definition"));
+  assert.ok(ids.includes("pdf-markdown-remediation"));
+  assert.ok(ids.includes("markdown-format-normalization"));
 
   const search = manifests.find((item) => item.id === "search-mcp");
   assert.ok(search);
@@ -122,6 +151,20 @@ test("listSkillManifests returns installed skills with categories", async () => 
   assert.equal(planning.category, "task");
   assert.ok(planning.references.includes("references/plan-template.md"));
   assert.ok(planning.references.includes("references/decision-rules.md"));
+
+  const pdfRemediation = manifests.find((item) => item.id === "pdf-markdown-remediation");
+  assert.ok(pdfRemediation);
+  assert.equal(pdfRemediation.category, "task");
+  assert.ok(pdfRemediation.references.includes("references/cleaning-and-repair.md"));
+  assert.ok(pdfRemediation.references.includes("references/markdown-output-contract.md"));
+  assert.ok(pdfRemediation.references.includes("references/frontmatter-and-tags.md"));
+
+  const markdownNormalization = manifests.find((item) => item.id === "markdown-format-normalization");
+  assert.ok(markdownNormalization);
+  assert.equal(markdownNormalization.category, "task");
+  assert.ok(markdownNormalization.references.includes("references/normalization-rules.md"));
+  assert.ok(markdownNormalization.references.includes("references/heading-list-table-rules.md"));
+  assert.ok(markdownNormalization.references.includes("references/output-examples.md"));
 });
 
 test("loadSkill rejects skills missing category", async () => {

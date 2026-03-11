@@ -25,3 +25,43 @@ test("compileInstructions includes task, inputs, and references", async () => {
   assert.ok(compiled.includes("\"audience\": \"exec\""));
   assert.ok(compiled.includes("references/summary-style.md"));
 });
+
+test("compileInstructions works for pdf-markdown-remediation with references", async () => {
+  const skill = await loadSkill(skillsRoot, "pdf-markdown-remediation");
+  const compiled = compileInstructions({
+    skill,
+    task: "Convert extracted PDF text into complete Markdown.",
+    inputs: { preserve_language: true, require_frontmatter: true },
+    references: [
+      {
+        path: "references/verification-checklist.md",
+        content: "verification content",
+        bytes: 20
+      }
+    ]
+  });
+
+  assert.ok(compiled.includes("Convert extracted PDF text into complete Markdown."));
+  assert.ok(compiled.includes("\"preserve_language\": true"));
+  assert.ok(compiled.includes("references/verification-checklist.md"));
+});
+
+test("compileInstructions works for note-exam-prep with references", async () => {
+  const skill = await loadSkill(skillsRoot, "note-exam-prep");
+  const compiled = compileInstructions({
+    skill,
+    task: "Create a complete exam-prep set from the current note.",
+    inputs: { source: "current-note", require_collapsible_answers: true },
+    references: [
+      {
+        path: "references/output-contract.md",
+        content: "output contract content",
+        bytes: 23
+      }
+    ]
+  });
+
+  assert.ok(compiled.includes("Create a complete exam-prep set from the current note."));
+  assert.ok(compiled.includes("\"require_collapsible_answers\": true"));
+  assert.ok(compiled.includes("references/output-contract.md"));
+});

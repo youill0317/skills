@@ -23,6 +23,8 @@ test("buildListSkillsResult returns sorted skills with count", async () => {
   assert.ok(ids.includes("report-writing"));
   assert.ok(ids.includes("planning"));
   assert.ok(ids.includes("academic-writing"));
+  assert.ok(ids.includes("pdf-markdown-remediation"));
+  assert.ok(ids.includes("markdown-format-normalization"));
 
   for (const skill of result.skills) {
     assert.ok(skill.category === "task" || skill.category === "mcp");
@@ -67,4 +69,16 @@ test("buildListSkillsResult returns sorted skills with count", async () => {
   assert.equal(planning.category, "task");
   assert.ok((planning.references ?? []).includes("references/plan-template.md"));
   assert.ok((planning.references ?? []).includes("references/decision-rules.md"));
+
+  const pdfRemediation = result.skills.find((item) => item.id === "pdf-markdown-remediation");
+  assert.ok(pdfRemediation);
+  assert.equal(pdfRemediation.category, "task");
+  assert.ok((pdfRemediation.references ?? []).includes("references/cleaning-and-repair.md"));
+  assert.ok((pdfRemediation.references ?? []).includes("references/verification-checklist.md"));
+
+  const markdownNormalization = result.skills.find((item) => item.id === "markdown-format-normalization");
+  assert.ok(markdownNormalization);
+  assert.equal(markdownNormalization.category, "task");
+  assert.ok((markdownNormalization.references ?? []).includes("references/normalization-rules.md"));
+  assert.ok((markdownNormalization.references ?? []).includes("references/frontmatter-and-tags.md"));
 });
