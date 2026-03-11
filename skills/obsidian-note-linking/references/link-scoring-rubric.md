@@ -29,6 +29,11 @@ Use this rubric to rank candidate notes for Obsidian connection proposals.
    - 1: Section-level target is plausible
    - 2: Heading/block/embed-level target is clearly justified
 
+6. **Policy adherence**
+   - 0: Breaks vault connection/tag policy
+   - 1: Partially aligned with policy
+   - 2: Fully aligned with active vault policy
+
 ## Ranking Guidance
 
 - Default priority: total score descending.
@@ -46,6 +51,8 @@ Choose the narrowest useful connection type:
 3. `[[Note#^block-id]]` for precise claim/quote reuse.
 4. `![[Note]]` for inline reuse where visible embedding helps.
 5. tags for cross-cutting themes or taxonomy alignment.
+
+Always prefer the policy default form unless precision needs justify escalation.
 
 ## Hard Filters
 

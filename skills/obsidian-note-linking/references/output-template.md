@@ -2,11 +2,12 @@
 
 Use this structure when returning recommendations.
 
-## 0) Connection Style
+## 0) Vault Connection Policy
 
-- Primary style: `[[wikilink]]` | `[[Note#Heading]]` | `[[Note#^block-id]]` | `![[Note]]` | `tags`
-- Why this style fits the current note.
-- Consistency rule: keep one primary style in this response unless user asked for mixed styles.
+- Primary form: `[[Note]]`
+- Escalation forms: `[[Note#Heading]]`, `[[Note#^block-id]]`, `![[Note]]`
+- Tag style: lowercase kebab-case
+- Note: apply the same policy to all notes unless user requested a change.
 
 ## 1) Top Connection Candidates
 
@@ -17,8 +18,8 @@ Use this structure when returning recommendations.
 
 - Intro/context section: `[[Note A]]`
 - Evidence/background section: `[[Note B#Key Heading]]`
-- Quote/excerpt section: `![[Note C]]`
-- Next steps/tasks section: `[[Note D#^block-id]]`
+- Quote/excerpt section: `[[Note D#^block-id]]`
+- Optional embed area: `![[Note C]]`
 
 ## 3) Tag Suggestions
 
@@ -32,7 +33,6 @@ Use this structure when returning recommendations.
 ## Related Connections
 - [[Note A]] — one-line rationale
 - [[Note B#Key Heading]] — one-line rationale
-- ![[Note C]] — one-line rationale
 
 ## Tags
 #tag1 #tag2 #tag3

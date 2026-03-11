@@ -25,27 +25,29 @@ Improve note connectivity in Obsidian by proposing high-signal, consistent conne
 2. Rank candidates by direct relevance to the open note.
 3. Suggest connection patterns (for example `[[wikilinks]]`, `[[Note#Heading]]`, `![[Note]]`, `[[Note#^block-id]]`, and tags).
 4. Keep suggestions actionable and easy to paste into the note.
-5. Avoid fabricating note names, sections, or metadata.
+5. Apply one vault-wide consistency policy so recommendations stay uniform across notes.
+6. Avoid fabricating note names, sections, or metadata.
 
 ## Core Workflow
 
 1. Confirm target note path/title and the note's core topic.
-2. Extract key concepts from the target note (entities, themes, projects, timeframes).
-3. Search the vault for candidate notes using concept keywords and aliases.
-4. Read only narrow sections needed to validate relevance and choose the best connection type.
-5. Score candidates by overlap, complementarity, and backlink value.
-6. Choose one primary connection style for the response unless the user asks for mixed styles.
-7. Propose a concise connection plan:
+2. Load or infer the vault's connection policy (preferred syntax, tag casing, heading/block usage).
+3. Extract key concepts from the target note (entities, themes, projects, timeframes).
+4. Search the vault for candidate notes using concept keywords and aliases.
+5. Read only narrow sections needed to validate relevance and choose the best connection type.
+6. Score candidates by overlap, complementarity, and backlink value.
+7. Apply the same connection policy used in prior recommendations for this vault unless the user explicitly requests a policy change.
+8. Propose a concise connection plan:
    - recommended connection expressions
    - suggested insertion context (sentence/section)
    - optional tag additions or normalization
-8. Return only verifiable suggestions tied to discovered notes.
+9. Return only verifiable suggestions tied to discovered notes.
 
 ## Output Standard
 
 Return a compact recommendation bundle with:
 
-1. **Connection style** selected for this response and why.
+1. **Vault connection policy** used in this response.
 2. **Top candidates (3-10)** with one-line why.
 3. **Insertion suggestions** for where each connection best fits.
 4. **Tag suggestions** split into keep/add/merge.
@@ -57,7 +59,7 @@ Quality rules:
 - Prefer connections that add context, evidence, dependency, or next action.
 - Do not recommend connections without reading enough to validate relevance.
 - Keep each rationale short and concrete.
-- Keep connection notation consistent in one response (unless user requested a comparison).
+- Keep notation and tag style consistent with the vault policy in every response.
 
 ## Integration
 
@@ -67,5 +69,6 @@ Quality rules:
 
 ## Resource Loading
 
+- Load `references/consistency-policy.md` for vault-wide style defaults and override rules.
 - Load `references/link-scoring-rubric.md` for candidate ranking and quality gates.
 - Load `references/output-template.md` for response structure and paste-ready formatting.

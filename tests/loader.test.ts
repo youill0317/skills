@@ -114,6 +114,7 @@ test("listSkillManifests returns installed skills with categories", async () => 
   assert.equal(obsidianNoteLinking.category, "task");
   assert.ok(obsidianNoteLinking.references.includes("references/link-scoring-rubric.md"));
   assert.ok(obsidianNoteLinking.references.includes("references/output-template.md"));
+  assert.ok(obsidianNoteLinking.references.includes("references/consistency-policy.md"));
 
   const planning = manifests.find((item) => item.id === "planning");
   assert.ok(planning);
