@@ -132,6 +132,7 @@ test("listSkillManifests returns installed skills with categories", async () => 
   assert.ok(obsidian);
   assert.equal(obsidian.category, "mcp");
   assert.ok(obsidian.references.includes("references/read-and-link-tools.md"));
+  assert.ok(obsidian.references.includes("references/resources-and-config.md"));
 
   const reportWriting = manifests.find((item) => item.id === "report-writing");
   assert.ok(reportWriting);

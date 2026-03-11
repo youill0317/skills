@@ -58,6 +58,7 @@ test("buildListSkillsResult returns sorted skills with count", async () => {
   assert.ok(obsidian);
   assert.equal(obsidian.category, "mcp");
   assert.ok((obsidian.references ?? []).includes("references/discovery-and-navigation.md"));
+  assert.ok((obsidian.references ?? []).includes("references/resources-and-config.md"));
 
   const reportWriting = result.skills.find((item) => item.id === "report-writing");
   assert.ok(reportWriting);

@@ -21,6 +21,10 @@ Load this reference when deciding between read, link, and backlink operations.
 
 Use when the path is known and you need only the heading outline.
 
+Constraint:
+
+- `maxLevel` must be an integer from 1 to 6.
+
 ## `read_markdown_section`
 
 ```json
@@ -32,6 +36,12 @@ Use when the path is known and you need only the heading outline.
 ```
 
 Use when the path and target section are known.
+
+Constraints:
+
+- `path` is required.
+- `header` must be non-empty.
+- Use `includeSubsections: false` when only the exact section body is needed.
 
 ## `read_markdown_full`
 
@@ -57,7 +67,9 @@ Multiple files:
 Constraints:
 
 - Provide `path` or `paths`, not both.
+- Provide at least one path.
 - `paths` is capped by the server max.
+- Output includes parsed frontmatter metadata when present, followed by the markdown body.
 
 ## `get_linked_files`
 
@@ -77,6 +89,10 @@ Allowed `type` values:
 - `external`
 - `embed`
 
+Notes:
+
+- Use `checkExists: true` only when existence checks matter; it adds extra filesystem work.
+
 ## `get_backlinks`
 
 ```json
@@ -89,3 +105,8 @@ Allowed `type` values:
 ```
 
 Use when you have a target note and need inbound references.
+
+Notes:
+
+- `path` should point to a file, not a directory.
+- Narrow `directory` when possible to reduce scan cost.

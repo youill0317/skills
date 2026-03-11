@@ -35,8 +35,15 @@ Optional filters:
 
 Constraints:
 
+- `query` must be non-empty.
 - `useRegex` and `fuzzy` cannot both be true.
 - `modifiedAfter` and `modifiedBefore` must be ISO-like date strings.
+- Keep one search intent per call.
+
+Output notes:
+
+- Results are grouped by filename, tag, and content matches.
+- Structured match metadata is available in addition to the text summary.
 
 ## `list_directory`
 
@@ -50,6 +57,8 @@ Use for one directory level.
   "respectGitignore": true
 }
 ```
+
+Use when you need one folder level only.
 
 ## `get_directory_tree`
 
@@ -68,3 +77,4 @@ Use for recursive structure overviews.
 Constraints:
 
 - `depth` must be an integer and must respect the server max depth.
+- Use only with directory paths, not file paths.
