@@ -1,6 +1,6 @@
 # Frontmatter and Tags
 
-Load this reference when creating YAML frontmatter for converted documents.
+Load this reference when creating or preserving YAML frontmatter for repaired documents.
 
 ## Frontmatter Requirement
 
@@ -30,7 +30,7 @@ tags: [pdf/converted, topic-tag-1, topic-tag-2]
 ## Tag Rules
 
 1. Tags are optional metadata, not a mandatory frontmatter field.
-2. Include `pdf/converted` only when tags are being added and the conversion context benefits from it.
+2. Include `pdf/converted` only when tags are being added and the source-aligned repair still benefits from conversion provenance.
 3. Add a small number of topic tags grounded in the source text only when the task or convention expects tags.
 4. Prefer concise lowercase tags.
 5. Use content-derived nouns or short noun phrases, not opinions or summaries.

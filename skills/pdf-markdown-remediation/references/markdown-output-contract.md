@@ -1,6 +1,6 @@
 # Markdown Output Contract
 
-Load this reference when applying the final Markdown formatting.
+Load this reference when applying the final Markdown formatting after source-aligned repair.
 
 ## Required Output Shape
 
@@ -10,6 +10,7 @@ Load this reference when applying the final Markdown formatting.
 4. Use `#` heading depth according to document hierarchy.
 5. Use `-` for unordered lists.
 6. Use `1.`, `2.`, `3.` style for ordered lists.
+7. Preserve recovered content order unless the source clearly supports a different structure.
 
 ## Tables
 
@@ -36,4 +37,5 @@ If merged cells or irregular layouts make a Markdown table misleading, rewrite a
 - Keep URLs exactly as written.
 - Keep image references exactly as written.
 - Keep numbers, dates, formulas, and identifiers exactly as written unless the extractor visibly split them.
+- Keep recovered source wording conservative when multiple imperfect extracts disagree.
 - Do not inject commentary, summaries, or editorial notes.

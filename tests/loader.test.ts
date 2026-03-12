@@ -43,6 +43,24 @@ test("loadSkill reads search-mcp metadata and body", async () => {
   assert.ok(skill.body.includes("provider/tool selection"));
 });
 
+test("loadSkill reads markitdown-mcp metadata and body", async () => {
+  const skill = await loadSkill(skillsRoot, "markitdown-mcp");
+  assert.equal(skill.id, "markitdown-mcp");
+  assert.equal(skill.name, "MarkItDown MCP");
+  assert.equal(skill.category, "mcp");
+  assert.ok(skill.description.includes("MCP-side document or URL to Markdown conversion setup"));
+  assert.ok(skill.body.includes("## Core Workflow"));
+});
+
+test("loadSkill reads markdown-conversion metadata and body", async () => {
+  const skill = await loadSkill(skillsRoot, "markdown-conversion");
+  assert.equal(skill.id, "markdown-conversion");
+  assert.equal(skill.name, "Markdown Conversion");
+  assert.equal(skill.category, "task");
+  assert.ok(skill.description.includes("first-pass Markdown draft"));
+  assert.ok(skill.body.includes("## Core Workflow"));
+});
+
 test("loadSkill reads research-strategy metadata and body", async () => {
   const skill = await loadSkill(skillsRoot, "research-strategy");
   assert.equal(skill.id, "research-strategy");
@@ -73,9 +91,9 @@ test("loadSkill reads obsidian-note-linking metadata and body", async () => {
 test("loadSkill reads pdf-markdown-remediation metadata and body", async () => {
   const skill = await loadSkill(skillsRoot, "pdf-markdown-remediation");
   assert.equal(skill.id, "pdf-markdown-remediation");
-  assert.equal(skill.name, "PDF Markdown Remediation");
+  assert.equal(skill.name, "Markdown Source-Aligned Repair");
   assert.equal(skill.category, "task");
-  assert.ok(skill.description.includes("copied or extracted from PDFs"));
+  assert.ok(skill.description.includes("misaligned with its source"));
   assert.ok(skill.body.includes("## Resource Loading"));
 });
 
@@ -94,7 +112,8 @@ test("loadSkill reads note-exam-prep metadata and body", async () => {
   assert.equal(skill.name, "Note Exam Prep");
   assert.equal(skill.category, "task");
   assert.ok(skill.description.includes("multiple-choice"));
-  assert.ok(skill.body.includes("collapsible answer-and-explanation block"));
+  assert.ok(skill.description.includes("collapsible answer-and-explanation block"));
+  assert.ok(skill.body.includes("## Output Standard"));
 });
 
 test("listSkillManifests returns installed skills with categories", async () => {
@@ -111,9 +130,11 @@ test("listSkillManifests returns installed skills with categories", async () => 
   assert.ok(ids.includes("academic-writing"));
   assert.ok(ids.includes("presentation-design"));
   assert.ok(ids.includes("problem-definition"));
+  assert.ok(ids.includes("markdown-conversion"));
   assert.ok(ids.includes("pdf-markdown-remediation"));
   assert.ok(ids.includes("markdown-format-normalization"));
   assert.ok(ids.includes("note-exam-prep"));
+  assert.ok(ids.includes("markitdown-mcp"));
 
   const search = manifests.find((item) => item.id === "search-mcp");
   assert.ok(search);
@@ -122,6 +143,19 @@ test("listSkillManifests returns installed skills with categories", async () => 
   assert.ok(search.references.includes("references/scholar.md"));
   assert.ok(!search.references.includes("references/quick-search-mode.md"));
   assert.ok(!search.references.includes("references/deep-research-mode.md"));
+
+  const markitdown = manifests.find((item) => item.id === "markitdown-mcp");
+  assert.ok(markitdown);
+  assert.equal(markitdown.category, "mcp");
+  assert.ok(markitdown.references.includes("references/tool-selection.md"));
+  assert.ok(markitdown.references.includes("references/setup-and-examples.md"));
+
+  const markdownConversion = manifests.find((item) => item.id === "markdown-conversion");
+  assert.ok(markdownConversion);
+  assert.equal(markdownConversion.category, "task");
+  assert.ok(markdownConversion.references.includes("references/conversion-boundaries.md"));
+  assert.ok(markdownConversion.references.includes("references/markitdown-workflow.md"));
+  assert.ok(markdownConversion.references.includes("references/post-conversion-review.md"));
 
   const researchStrategy = manifests.find((item) => item.id === "research-strategy");
   assert.ok(researchStrategy);
@@ -160,6 +194,7 @@ test("listSkillManifests returns installed skills with categories", async () => 
   assert.ok(pdfRemediation.references.includes("references/cleaning-and-repair.md"));
   assert.ok(pdfRemediation.references.includes("references/markdown-output-contract.md"));
   assert.ok(pdfRemediation.references.includes("references/frontmatter-and-tags.md"));
+  assert.ok(pdfRemediation.references.includes("references/source-comparison-and-fallbacks.md"));
 
   const markdownNormalization = manifests.find((item) => item.id === "markdown-format-normalization");
   assert.ok(markdownNormalization);

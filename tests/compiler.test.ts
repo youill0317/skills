@@ -46,6 +46,26 @@ test("compileInstructions works for pdf-markdown-remediation with references", a
   assert.ok(compiled.includes("references/verification-checklist.md"));
 });
 
+test("compileInstructions works for markdown-conversion with references", async () => {
+  const skill = await loadSkill(skillsRoot, "markdown-conversion");
+  const compiled = compileInstructions({
+    skill,
+    task: "Convert the provided DOCX file into first-pass Markdown.",
+    inputs: { source_kind: "docx", use_markitdown_mcp: true },
+    references: [
+      {
+        path: "references/post-conversion-review.md",
+        content: "review content",
+        bytes: 14
+      }
+    ]
+  });
+
+  assert.ok(compiled.includes("Convert the provided DOCX file into first-pass Markdown."));
+  assert.ok(compiled.includes("\"use_markitdown_mcp\": true"));
+  assert.ok(compiled.includes("references/post-conversion-review.md"));
+});
+
 test("compileInstructions works for note-exam-prep with references", async () => {
   const skill = await loadSkill(skillsRoot, "note-exam-prep");
   const compiled = compileInstructions({

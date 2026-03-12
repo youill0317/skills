@@ -47,9 +47,10 @@ Every output must:
 
 ## Integration
 
-1. Use after `pdf-markdown-remediation` when a converted document needs a second-pass cleanup.
-2. Use standalone for messy notes, imported Markdown, or mixed-format documents.
-3. Do not use this skill to reconstruct raw PDF text; that belongs to `pdf-markdown-remediation`.
+1. Use after `markdown-conversion` when a converted document is structurally readable but needs formatting cleanup.
+2. Use after `pdf-markdown-remediation` when a source-aligned repair pass needs a final normalization pass.
+3. Use standalone for messy notes, imported Markdown, or mixed-format documents.
+4. Do not use this skill to reconstruct raw PDF text or recover source truth; that belongs to `pdf-markdown-remediation`.
 
 ## Resource Loading
 

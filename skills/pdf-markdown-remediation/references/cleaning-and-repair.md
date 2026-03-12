@@ -1,10 +1,10 @@
 # Cleaning and Repair
 
-Load this reference when PDF text contains extraction noise, OCR instability, or line-wrap damage.
+Load this reference when Markdown or extracted text contains artifact noise, OCR instability, or line-wrap damage during source-aligned repair.
 
 ## Artifact Removal
 
-Remove repeated non-body text only when it is clearly an extraction artifact:
+Remove repeated non-body text only when it is clearly an extraction artifact or clearly absent from the truth source:
 
 - page numbers
 - running headers and footers
@@ -27,9 +27,15 @@ Do not remove text that may be part of the document body, even if it looks repet
 
 ## OCR Damage Handling
 
-1. Correct obvious OCR spacing and split-token errors only when the intended token is unambiguous.
+1. Correct obvious OCR spacing and split-token errors only when the intended token is unambiguous from the source or a strong secondary extract.
 2. Do not guess missing words, citations, or symbols.
 3. Preserve uncertain content rather than replacing it with invented text.
+
+## Recovery Rules
+
+1. Restore omitted text only when the source or a high-confidence auxiliary extract confirms it.
+2. If current Markdown and auxiliary extracts disagree, prefer the original source when available.
+3. If no trustworthy source view resolves the conflict, preserve the literal evidence and avoid synthesis.
 
 ## Repair Priorities
 
@@ -39,4 +45,5 @@ Apply repairs in this order:
 2. restore broken words
 3. merge broken sentences
 4. restore paragraph boundaries
-5. classify structure before formatting
+5. recover omitted source content
+6. classify structure before formatting

@@ -1,6 +1,6 @@
 # Structure Analysis
 
-Load this reference when the extracted text has ambiguous document structure.
+Load this reference when repaired Markdown or extraction views have ambiguous document structure.
 
 ## Structural Units to Detect
 
@@ -26,6 +26,7 @@ Signals:
 - title-style capitalization or numbering
 - followed by a new paragraph or subsection
 - repeated structural pattern across the document
+- confirmed by the source or repeated extraction evidence when available
 
 ## List Heuristics
 
@@ -36,6 +37,7 @@ Treat content as a list when there is a repeated marker or enumerated sequence:
 - short parallel clauses stacked line by line
 
 If markers were lost, infer a list only when parallel structure is strong.
+Use the source to break ties when paragraph-vs-list classification is ambiguous.
 
 ## Table Heuristics
 
@@ -45,6 +47,8 @@ If Markdown table rendering would lose meaning:
 
 - repeat merged-cell labels in affected rows, or
 - rewrite the structure as a list instead of forcing a broken table
+
+If the source clearly shows a table but current Markdown flattened it, prioritize recovering row and column relationships over pretty formatting.
 
 ## Special Blocks
 
