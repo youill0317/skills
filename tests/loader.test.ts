@@ -79,6 +79,16 @@ test("loadSkill reads obsidian-mcp metadata and body", async () => {
   assert.ok(skill.body.includes("## Category"));
 });
 
+test("loadSkill reads canva-mcp metadata and body", async () => {
+  const skill = await loadSkill(skillsRoot, "canva-mcp");
+  assert.equal(skill.id, "canva-mcp");
+  assert.equal(skill.name, "Canva MCP");
+  assert.equal(skill.category, "mcp");
+  assert.ok(skill.description.includes("official Canva MCP connector"));
+  assert.ok(skill.description.includes("web link plus a short local Markdown design report"));
+  assert.ok(skill.body.includes("## Core Workflow"));
+});
+
 test("loadSkill reads obsidian-note-linking metadata and body", async () => {
   const skill = await loadSkill(skillsRoot, "obsidian-note-linking");
   assert.equal(skill.id, "obsidian-note-linking");
@@ -124,6 +134,7 @@ test("listSkillManifests returns installed skills with categories", async () => 
   assert.ok(ids.includes("search-mcp"));
   assert.ok(ids.includes("research-strategy"));
   assert.ok(ids.includes("obsidian-mcp"));
+  assert.ok(ids.includes("canva-mcp"));
   assert.ok(ids.includes("obsidian-note-linking"));
   assert.ok(ids.includes("report-writing"));
   assert.ok(ids.includes("planning"));
@@ -168,6 +179,14 @@ test("listSkillManifests returns installed skills with categories", async () => 
   assert.equal(obsidian.category, "mcp");
   assert.ok(obsidian.references.includes("references/read-and-link-tools.md"));
   assert.ok(obsidian.references.includes("references/resources-and-config.md"));
+
+  const canva = manifests.find((item) => item.id === "canva-mcp");
+  assert.ok(canva);
+  assert.equal(canva.category, "mcp");
+  assert.ok(canva.references.includes("references/tool-families.md"));
+  assert.ok(canva.references.includes("references/generation-and-assets.md"));
+  assert.ok(canva.references.includes("references/access-export-and-ops.md"));
+  assert.ok(canva.references.includes("references/delivery-and-reporting.md"));
 
   const reportWriting = manifests.find((item) => item.id === "report-writing");
   assert.ok(reportWriting);

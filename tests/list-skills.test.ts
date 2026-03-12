@@ -20,6 +20,7 @@ test("buildListSkillsResult returns sorted skills with count", async () => {
   assert.ok(ids.includes("search-mcp"));
   assert.ok(ids.includes("research-strategy"));
   assert.ok(ids.includes("obsidian-mcp"));
+  assert.ok(ids.includes("canva-mcp"));
   assert.ok(ids.includes("report-writing"));
   assert.ok(ids.includes("planning"));
   assert.ok(ids.includes("academic-writing"));
@@ -75,6 +76,14 @@ test("buildListSkillsResult returns sorted skills with count", async () => {
   assert.equal(obsidian.category, "mcp");
   assert.ok((obsidian.references ?? []).includes("references/discovery-and-navigation.md"));
   assert.ok((obsidian.references ?? []).includes("references/resources-and-config.md"));
+
+  const canva = result.skills.find((item) => item.id === "canva-mcp");
+  assert.ok(canva);
+  assert.equal(canva.category, "mcp");
+  assert.ok((canva.references ?? []).includes("references/tool-families.md"));
+  assert.ok((canva.references ?? []).includes("references/generation-and-assets.md"));
+  assert.ok((canva.references ?? []).includes("references/access-export-and-ops.md"));
+  assert.ok((canva.references ?? []).includes("references/delivery-and-reporting.md"));
 
   const reportWriting = result.skills.find((item) => item.id === "report-writing");
   assert.ok(reportWriting);
