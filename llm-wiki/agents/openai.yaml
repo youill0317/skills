@@ -1,0 +1,4 @@
+interface:
+  display_name: "LLM Wiki"
+  short_description: "Maintain Obsidian llm-wikis with ingest, query, and lint"
+  default_prompt: "Use $llm-wiki to ingest _ingest/, update the right wiki, and report provenance."
