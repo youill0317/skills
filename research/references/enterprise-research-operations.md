@@ -15,6 +15,9 @@ Enterprise-ready research must be:
   provenance, and verification results
 - reproducible enough: another analyst can see what was searched, what was not
   searched, and why the stop rule was reached
+- converged: material leads from internal, connected, public, and blocked
+  source families are followed, closed, blocked with confidence effect, or
+  shown unable to change the decision
 - permission-aware: sensitive, internal, proprietary, personal, or regulated
   sources are only used when authorized and necessary
 - calibrated: confidence reflects evidence quality, not polish or source count
@@ -30,7 +33,7 @@ Before collecting evidence, define the decision context when available:
 
 | Field | Record |
 |---|---|
-| Decision / output | recommendation, briefing, memo, landscape, vendor comparison, risk assessment, diligence note, literature review, source map, data table |
+| Decision / output | recommendation, briefing, memo, landscape, vendor comparison, risk assessment, diligence note, literature review, source coverage table, data table |
 | Decision owner / audience | executive, product, legal, policy, finance, sales, customer team, researcher, individual user |
 | Decision deadline | hard date, soft date, or not specified |
 | Decision criteria | cost, risk, compliance, feasibility, performance, evidence strength, market timing, strategic fit, user impact |
@@ -112,13 +115,16 @@ collection:
 | W2 | market/data/literature | empirical and external context | main/subagent | source rows | method and comparability checked |
 | W3 | counterevidence | risks, objections, disconfirming cases | main/subagent | gap rows | material counterclaims checked |
 | W4 | currentness/provenance | freshness, lineage, supersession | main/subagent | verification rows | currentness and lineage resolved |
+| W5 | frontier queue convergence | material leads, blocked primary sources, unresolved source-family paths | main/subagent | Lead Ledger / Coverage Debt rows | no material open lead remains without follow-up, closure reason, blockage, or confidence effect |
 
 Use subagents for independent lanes when available. The main agent remains the
 only writer for the research record and owns synthesis.
 
 ## Deliverable Patterns
 
-Choose the smallest deliverable that can support the decision:
+Choose the smallest user-facing answer shape that can support the decision, but
+do not lower the research protocol or split artifacts. The full evidence trail
+still belongs in the single Markdown research record:
 
 - `executive brief`: answer first, confidence, decision implications, caveats,
   sources checked, open risks
@@ -206,7 +212,7 @@ applicable` with a reason:
 | Counterevidence | material objections, contradictory sources, and failure cases were searched and recorded |
 | Currentness | current-dependent claims have latest-update, supersession, or as-of checks |
 | Sensitivity | private, personal, regulated, or confidential data handling is minimized and recorded |
-| Reproducibility | query ledger, lead queue, source-family coverage, and verification lanes are complete |
+| Reproducibility | Search Craft Log, Wave Log, Lead Ledger, frontier queue convergence, source-family coverage, and verification lanes are complete |
 | Stakeholder readability | confidence, caveats, implications, and next actions are visible without reading every note |
 
 If a gate fails, run a targeted gap pass, downgrade affected claims, or present
@@ -238,6 +244,8 @@ When the topic may change after delivery, record monitoring triggers:
 - trigger events that should reopen the research
 - claims most vulnerable to change
 - unresolved leads worth following if access or time changes
+- frontier queue items that could not be followed because access, sensitivity,
+  ownership, or tooling changed
 
 Research records are reusable only if their scope, as-of date, source coverage,
 and confidence labels are still valid for the new decision. Otherwise reuse them

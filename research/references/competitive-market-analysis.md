@@ -10,7 +10,7 @@ Do not treat every "competitive analysis" request as the same task. First determ
 - Competitor set: user-specified, proposed by the agent, or discovered during research.
 - Audience and output shape: executive briefing, detailed primer,
   investment-style analysis, product strategy, academic comparison, table,
-  deck outline, research memo, spreadsheet, or source map.
+  deck outline, research memo, spreadsheet, or source coverage table.
 - Time horizon: current market, historical evolution, near-term outlook, or scenario planning.
 
 If the competitor set is not specified, propose one and explain inclusion criteria before relying on it.
@@ -56,6 +56,14 @@ Batch scout and target searches across lanes before snowballing. Merge early
 findings, then snowball only the lanes that affect the decision, comparison, or
 important claims. Stop each lane independently only after its evidence need is
 satisfied or explicitly blocked by unavailable sources.
+
+Maintain a market frontier queue across competitor discovery, pricing pages,
+terms, support/SLA documents, customer evidence, analyst methodology, adoption
+signals, product changelogs, integrations, security/compliance records, and
+blocked primary sources. Do not finalize a comparison or recommendation while
+material competitor, pricing, method, review-manipulation, or source-retrieval
+frontiers remain open without follow-up, closure reason, blockage, or
+confidence downgrade.
 
 ## Open-Source And Community Project Health
 
@@ -142,5 +150,8 @@ If the industry is not listed, infer metrics from how operators, buyers, regulat
   explicitly.
 - Regulatory, pricing, demand, and product-signal claims have confidence labels
   when they affect strategic conclusions.
+- Missing competitor data, unavailable pricing, blocked reports, and
+  inaccessible customer evidence are visible as frontier or coverage-debt items
+  rather than silent blanks.
 - Insight headings state findings, not topics.
 - The final synthesis answers "so what?" for the intended audience.

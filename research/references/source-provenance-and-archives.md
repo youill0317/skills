@@ -64,6 +64,11 @@ unavailable:
 - check canonical URLs, archived pages, metadata pages, report PDFs, cited
   snapshots, and publisher records
 - search by title, exact phrase, statistic, author, institution, and date
+- search authorized alternates such as mirrors, transcripts, APIs, repository
+  history, cached copies, official mirrors, and cited primary excerpts
+- keep the unavailable source as an open frontier item until it is recovered,
+  closed as unable to change the claim, or converted into coverage debt with a
+  confidence effect
 - mark provenance as unresolved rather than inferring support from repeated
   secondary citations
 
@@ -81,6 +86,8 @@ timelines:
   archive services when the timing matters
 - corroborate archive-based sequence claims with metadata, filings, changelogs,
   release notes, citations, or other dated records when possible
+- do not close archive/provenance frontiers while unresolved captures, mirrors,
+  redirects, language variants, or quoted originals could change the claim
 
 ## Mutable Internal Sources
 

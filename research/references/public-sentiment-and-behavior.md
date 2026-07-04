@@ -27,3 +27,12 @@ support threads, community posts, or other user-generated traces.
 - check representativeness against stronger baselines when available: active
   users, downloads, transactions, support volume, surveys with disclosed methods,
   retention/churn metrics, telemetry, or official usage disclosures
+- maintain a behavior-trace frontier queue for review clusters, copied text,
+  account or campaign links, platform sorting choices, language/version slices,
+  denominator leads, official usage baselines, support-volume records, and
+  blocked platform searches. Close each item only when followed, duplicate,
+  blocked with confidence effect, out of scope, or unable to change the scoped
+  behavior claim.
+- treat inaccessible platform data, missing denominators, hidden sort logic, and
+  unavailable moderation context as source-retrieval or coverage-debt items, not
+  as proof that sentiment or behavior is representative.

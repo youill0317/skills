@@ -67,6 +67,11 @@ gap.
 3. Search for decisions and objections separately: `approved`, `rejected`, `blocked`, `risk`, `tradeoff`, `follow-up`.
 4. Track source lineage so one repeated claim from the same document chain is not mistaken for independent corroboration.
 5. Prefer current canonical docs for policy or process, and raw records for examples or frequency.
+6. Maintain a frontier queue: every material object ID, linked document,
+   ticket, repository reference, dashboard, owner, meeting, customer segment,
+   blocked source family, contradiction, and stale-doc path is followed,
+   closed, blocked with confidence effect, or marked unable to change the
+   decision before synthesis.
 
 For enterprise systems, prefer exact object identifiers over broad keyword
 search when available: document title, ticket ID, pull request number, commit
@@ -146,3 +151,15 @@ When internal sources conflict, apply the hierarchy that matches the claim:
 
 When none of the preferred sources are accessible, label the conclusion with the
 source-family gap and avoid presenting the weaker source as authoritative.
+
+## Enterprise Frontier Queue
+
+For internal or connected-source research, frontier queue convergence is part
+of permission-aware saturation. Record material leads from object links,
+owners, mentions, duplicate tickets, dashboard definitions, code references,
+meeting follow-ups, stale-doc supersession paths, support clusters, and blocked
+systems in the single research record. Close each lead as followed,
+duplicate-lineage, blocked by access/sensitivity, out of scope, low quality,
+superseded, or unable to change the decision. If a blocked internal source
+family could materially change a decision, downgrade decision-use status or mark
+owner review required.

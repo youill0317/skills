@@ -14,6 +14,11 @@ experts, authors, executives, vendors, nonprofits, projects, or institutions.
 - build a role timeline with role/title, organization, start/end or observed
   dates, source publication date, current/former/uncertain status, and whether
   the source is self-claimed, official, third-party, or archival
+- maintain an identity frontier queue: aliases, native-script names, registry
+  IDs, official profiles, archived profiles, prior affiliations, coauthors,
+  domains, handles, lookalikes, and excluded same-name records must be followed,
+  closed, blocked with confidence effect, or marked unable to change the
+  identity conclusion
 
 ## Disclosure And Affiliation Checks
 
@@ -28,3 +33,7 @@ experts, authors, executives, vendors, nonprofits, projects, or institutions.
 - check handle reuse, impersonation, renamed/deleted accounts, archive
   timestamps, and whether a profile description is self-description or
   independently verified role evidence
+- treat inaccessible registries, deleted profiles, blocked archives, and
+  missing disclosure records as source-retrieval frontier items, not as absence
+  evidence, until alternate authorized paths are tried or confidence is
+  downgraded

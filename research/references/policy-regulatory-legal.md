@@ -23,3 +23,13 @@ Use this for policy, regulatory, or legal landscape research.
   and preemption.
 - Separate the law as written, regulator interpretation, enforcement posture,
   court treatment, and practical compliance norms.
+- Maintain a policy/legal frontier queue for citations, incorporated standards,
+  rulemaking docket items, guidance updates, court later history, enforcement
+  records, pending bills/rules, amendments, stays, injunctions, repeals,
+  exemptions, and blocked governing sources. Close each item only when followed,
+  superseded, blocked with confidence effect, or unable to change the scoped
+  legal/policy conclusion.
+- Treat missing paid-database access, unavailable dockets, blocked standards,
+  or inaccessible filings as source-retrieval frontier items rather than
+  absence evidence until authorized alternate paths are tried or the limitation
+  is carried into confidence and owner review.

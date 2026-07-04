@@ -62,6 +62,11 @@ Choose databases by discipline before searching:
    claim depends on methods, sample, measures, statistical model, or limitations.
 10. Verify publication metadata before citing: title, authors, year, venue, DOI,
    version, preprint status, and retraction or expression-of-concern status.
+11. Maintain a scholarly frontier queue: cited papers, citing papers, authors,
+    datasets, instruments, preregistrations, replication materials, retractions,
+    corrections, benchmark repositories, and blocked full-text sources must be
+    followed, closed, blocked with confidence effect, or shown unable to change
+    the synthesis.
 
 ## Evidence Extraction
 
@@ -141,6 +146,9 @@ Stop the academic search when:
 - backward and forward citation chasing from the strongest seed papers, recent
   reviews, and contradictory studies no longer finds new eligible concepts,
   methods, populations, or result clusters;
+- blocked full text, unavailable appendices, missing datasets, and inaccessible
+  replication materials are recovered through authorized alternates or recorded
+  as coverage debt with confidence effect;
 - major disagreements have been traced to differences in design, sample,
   measures, definitions, analysis, timing, or publication status, or are
   explicitly unresolved;

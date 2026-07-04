@@ -20,6 +20,10 @@ estimates, models, app rankings, self-reports, forecasts, or vendor claims.
   margins of error, caveats, and proxy limits in the final answer
 - prefer official tables, API metadata, codebooks, and release notes over
   dashboard screenshots or secondary chart copies
+- keep blocked tables, unavailable methodology notes, missing codebooks,
+  inaccessible dashboards, and unrecovered benchmark definitions as
+  source-retrieval frontier items until recovered, closed, or tied to confidence
+  downgrade
 
 ## Proxy And Method Caveats
 
@@ -28,3 +32,5 @@ estimates, models, app rankings, self-reports, forecasts, or vendor claims.
 - separate direct measurement from proxy inference
 - triangulate with independent source families when possible
 - treat exact numbers as weaker when methodology is unpublished or opaque
+- do not present a statistic as decision-ready while the denominator, universe,
+  method, vintage, or retrieval frontier remains open and material

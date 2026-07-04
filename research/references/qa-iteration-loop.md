@@ -11,8 +11,12 @@ Draft 0 -> QA audit -> targeted gap pass -> integrate -> re-audit -> final label
 
 ## Required Steps
 
-1. Create provisional synthesis only after source map, candidate table, query
-   ledger, lead graph, and claim register exist.
+1. Create provisional synthesis only after `## Sources`, `## Source Coverage`,
+   `## Search Matrix`, `## Search Craft Log`, `## Wave Log`,
+   `## Tool Capability Audit`, `## Diversified Search Batch Plan`,
+   `## Lead Ledger`, `## Source-Opened Follow-Up Audit`,
+   `## Expansion Frontier Audit`, `## Saturation Metrics`, and
+   `## Claim Ledger` exist in the single record.
 2. Run acceptance tests from `acceptance-tests.md`.
 3. Run independent verification lanes from `subagent-orchestration.md`.
 4. For professional-grade work, run red-team review from
@@ -31,6 +35,15 @@ Draft 0 -> QA audit -> targeted gap pass -> integrate -> re-audit -> final label
   final answer is explicitly historical.
 - If a material source family is inaccessible, record `not accessible`, state
   impact, and do not infer from weaker sources without a caveat.
+- If frontier queue convergence fails, convert the highest-impact open leads
+  into a targeted EXPAND or gap pass, or close/block them with confidence
+  effects before firm synthesis.
+- If the record does not show harness max-use through resolved
+  `## Tool Capability Audit`, numeric sub-batches in
+  `## Diversified Search Batch Plan`, closed `## Search Matrix` rows, and
+  saturation metrics for query diversity, inspected sources, expansion waves,
+  counter-search, local/jurisdictional sweeps, and material lead closure, run a
+  search-pressure gap pass before any firm synthesis.
 - If independent QA is unavailable and only self-audit is performed, do not use
   `professional-grade` or `research-firm-replacement`; the strongest label is
   `research support only` unless the user explicitly accepts self-audit as
@@ -48,7 +61,7 @@ The single research record must include this under `## Verification Notes`:
 | Iteration | Trigger | Action | Re-Tested | Result | Label Impact |
 |---|---|---|---|---|---|
 | 0 | initial QA | ... | ... | pass / fail | ... |
-| 1 | RT1 blocking finding | targeted gap pass | Claim Support, Synthesis Overreach | pass / fail | downgraded / restored / unchanged |
+| 1 | RT1 blocking finding | targeted gap pass | Claim Support, Frontier Queue Convergence, Synthesis Overreach | pass / fail | downgraded / restored / unchanged |
 ```
 
 Stop only when required tests pass, or when remaining gaps are explicit and the

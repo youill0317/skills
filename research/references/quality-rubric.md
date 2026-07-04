@@ -16,10 +16,19 @@ decision-ready, or research-firm-replacement work.
 
 Any hard blocker prevents `professional-grade`:
 
+- research artifacts are split across multiple records or sidecar files instead
+  of one Markdown research record
+- the investigation skips the search matrix, lane plan, EXPAND lead loop, or
+  counter-search without recording a justified tool/access/user-budget limit
+- material frontier queue leads remain open without follow-up, closure reason,
+  blockage, confidence downgrade, or a clear finding that they cannot change an
+  important claim
 - a decision-relevant claim lacks inspected/retrieved source support
 - a used source is based only on snippet, AI summary, generated overview, or
   uninspected citation
 - current-dependent claim lacks as-of/latest-update/supersession check
+- a high-risk non-code claim is stated firmly without passing the
+  verified-claim gate or an explicit source-of-truth exception
 - material source-family gap is hidden or mislabeled as `not found`
 - material conflict is unresolved but final answer gives a firm conclusion
 - high-stakes claim lacks governing/primary source or required owner/SME review
@@ -40,13 +49,18 @@ Score each dimension with evidence from the single research record, including
 | Source-family coverage | 10 | primary, empirical/method, secondary/context, counterevidence, and domain-specific families checked or justified unavailable |
 | Claim traceability | 10 | every important claim maps to source IDs, evidence location, confidence, and disposition |
 | Provenance and lineage control | 8 | original/mirror/archive/excerpt roles, duplicate lineages, source-of-claim, and mutable-source custody are tracked |
-| Search reproducibility | 8 | scout, target, snowball, gap-pass queries/paths, filters, source systems, and dates are recorded |
+| Search saturation and reproducibility | 8 | search matrix, lane plan, scout, target, snowball, EXPAND, frontier queue convergence, counter-search, gap-pass queries/paths, filters, source systems, and dates are recorded |
 | Method and data appraisal | 8 | denominators, definitions, samples, uncertainty, comparability, data vintage, and limitations checked where relevant |
 | Counterevidence and alternatives | 8 | contradiction, negative cases, rebuttals, and plausible alternatives searched and reflected |
 | Currentness and supersession | 6 | current claims have as-of timestamp, newest-source check, and supersession status |
 | Privacy, ethics, and access control | 6 | sensitive data minimized; access basis, redistribution, and owner-review triggers recorded |
 | Synthesis calibration | 8 | final answer does not exceed evidence; uncertainty and gaps change claim strength |
 | Deliverable usefulness | 6 | answer, implications, caveats, next actions, and audience-specific format are clear |
+
+Single-record compliance is required across all dimensions: the evidence trail,
+search matrix, lead ledger, expansion frontier audit, frontier queue
+convergence metric, claim ledger, verified-claim gate, quality result, and
+final synthesis must live in the one Markdown record.
 
 Thresholds:
 

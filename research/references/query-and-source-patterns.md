@@ -21,8 +21,22 @@ patterns.
 | business, strategy, diligence, procurement, policy, risk, executive, or decision-support research | `enterprise-research-operations.md` |
 | professional, high-stakes, externally reviewed, or research-firm-replacement work | `professional-research-quality.md` |
 | clinical/medical, financial/investment, litigation/legal-support, OSINT, security, procurement, customer/UX, or regulated-domain research | `high-stakes-domain-protocols.md` |
+| broad discovery, graph expansion, recursive lead following, or frontier convergence | `expansive-research.md` |
 
 ## Broadening And Narrowing
+
+When local command execution is available, start the search matrix with
+`research/scripts/query_matrix.py`. Treat the output as query seeds, not as a
+complete search path. Expand, prune, and specialize the generated families as
+the investigation discovers better terms, source families, and false positives.
+The generated matrix includes frontier-expansion and blocked-source-recovery
+families so the first search plan already anticipates citation chasing, author
+and dataset leads, successors, corrections, repositories, dockets, archives,
+mirrors, transcripts, APIs, and alternate retrieval paths.
+For web/search harnesses that support batched queries, call
+`research/scripts/query_matrix.py --format batches --batch-size <tool-limit>` to
+produce diversified portfolios that mix independent source families in each
+batch.
 
 If searches return too few useful results, broaden in this order:
 
@@ -31,6 +45,9 @@ If searches return too few useful results, broaden in this order:
 3. Add synonyms, acronyms, translated terms, and local-language variants.
 4. Search for higher-level categories, institutions, authors, or standards.
 5. Follow citations, linked documents, footnotes, and named datasets.
+6. Turn blocked or inaccessible primary sources into alternate retrieval
+   searches: archive, mirror, PDF, transcript, API, repository history, cached
+   copy, or cited excerpt.
 
 If searches return too many weak results, narrow in this order:
 

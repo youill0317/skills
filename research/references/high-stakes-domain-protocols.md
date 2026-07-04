@@ -15,6 +15,12 @@ professional advice, and owner/SME decision. Unless the user and environment
 explicitly support a professional work product, frame outputs as research
 support and mark owner/SME review needs.
 
+Do not write firm high-stakes synthesis while material frontier queue leads are
+open. High-stakes records must show that domain-critical leads, governing
+sources, blocked primary sources, counterevidence paths, currentness checks,
+source-lineage doubts, and method/data gaps were followed, closed, blocked with
+confidence effect, or marked unable to change the scoped conclusion.
+
 ## Clinical / Medical
 
 - check current regulator guidance, product label, clinical guideline, trial

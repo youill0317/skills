@@ -23,6 +23,10 @@ latest-status lookup into research by itself.
   reports, or source documents.
 - Search for corrections, retractions, updates, denials, and later
   clarifications.
+- Keep a current-event frontier queue for new filings, docket entries, official
+  responses, article update notes, local-language reports, archived originals,
+  and denials; close each item only when followed, superseded, blocked with
+  confidence effect, or unable to change the as-of answer.
 - Do not treat repeated coverage of the same press release, wire story, or
   unnamed source as independent evidence.
 - Before finalizing, run a newest-first recency pass for corrections,

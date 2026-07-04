@@ -3,9 +3,11 @@
 Use these scenarios to benchmark the research skill itself or to choose
 appropriate source-family and QA expectations for professional research.
 
-Each scenario needs a record with framing, source map, candidate table, claim
-register, query ledger, lead graph, acceptance tests, red-team findings, and
-quality rubric result.
+Each scenario needs one Markdown record with framing, `## Sources`,
+`## Source Coverage`, `## Search Matrix`, `## Search Craft Log`, `## Wave Log`,
+`## Lead Ledger`, `## Expansion Frontier Audit`, `## Saturation Metrics`,
+frontier queue convergence, `## Claim Ledger`, acceptance tests, red-team
+findings, and quality rubric result.
 
 ## Scenario Matrix
 
@@ -31,6 +33,7 @@ For each benchmark run, record:
 - expected confidence label for central claims
 - common false-positive or overreach traps
 - minimum acceptance tests that must pass
+- frontier queue convergence condition for the scenario
 - one good-synthesis example in outline form
 - one anti-pattern to avoid
 

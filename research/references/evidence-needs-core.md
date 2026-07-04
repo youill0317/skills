@@ -24,6 +24,8 @@ Use this compact map before opening heavier query references.
 | `expert-interpretation` | How do qualified experts interpret the issue? | Peer-reviewed papers, literature reviews, expert reports, technical explainers, interviews, professional guidance. |
 | `stakeholder-position` | What do affected parties claim, support, oppose, or disclose? | Official statements, press releases, public comments, testimony, interviews, consultation submissions, investor materials. |
 | `claim-provenance` | Where did a claim originate, and how did it spread? | Original statements, earliest reports, archives, citations, syndication chains, reposts, mirrored documents, correction histories. |
+| `lead-expansion` | Which discovered leads could change the answer or close a coverage gap? | Citations, footnotes, linked documents, authors, institutions, datasets, methods, repositories, issues, dockets, standards, successors, corrections, co-citations. |
+| `source-retrieval` | How can blocked or inaccessible source-of-truth material be recovered through authorized alternates? | Archives, mirrors, PDFs, APIs, transcripts, appendices, repository history, package registries, cached copies, official mirrors, cited excerpts. |
 | `observed-behavior` | What are people, organizations, or markets actually doing? | Reviews, forums, social media, app stores, transaction traces, pricing changes, hiring posts, product changes, support threads. |
 | `historical-timeline` | What changed, when, and in what sequence? | Archives, changelogs, court dockets, news records, filings, version histories, web captures, update notices. |
 | `comparative-benchmark` | Compared with what baseline, peer, prior period, or standard? | Peer groups, competitor materials, benchmarks, standards, previous measurements, official comparisons, industry datasets. |
@@ -81,11 +83,15 @@ freshness matters, and exclusions for unrelated meanings.
 - Keep source lineages separate; repeated copies of one source do not count as
   independent support.
 - Define counterevidence before synthesis for every central claim.
+- Turn every material citation, author, dataset, repository, issue, docket,
+  correction, local term, and blocked primary source into a lead-expansion or
+  source-retrieval decision before synthesis.
 - Check source authority, freshness, independence, completeness, and relevance.
 - Mark a source as used only after inspecting its body or retrieved record
   through an authorized source path; search snippets, AI summaries, and
   generated overviews are leads only.
-- Record missing source families and failed searches in the query ledger.
+- Record missing source families and failed searches in `## Search Craft Log`,
+  `## Wave Log`, or `## Dead Ends` in the single research record.
 
 ## Confidence Labels
 
