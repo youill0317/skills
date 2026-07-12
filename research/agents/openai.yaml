@@ -1,4 +1,4 @@
 interface:
   display_name: "Research"
-  short_description: "Run maximum-saturation evidence research into one Markdown record."
-  default_prompt: "Use $research for maximum-saturation evidence research on: <topic>. Do not use quick/deep/lightweight modes; inspect sources, expand leads, counter-search, verify claims, and produce one Markdown record."
+  short_description: "Run rigorous, audit-ready evidence research"
+  default_prompt: "Use $research to produce an audit-ready evidence synthesis on: <topic>."
