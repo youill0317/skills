@@ -1,0 +1,21 @@
+{
+  "schemaVersion": "0.1.0",
+  "name": "LLM Wiki Intake",
+  "behavior": "create",
+  "noteNameFormat": "{{time|date:\"YYYY-MM-DD-HHmmss\"}} {{title|safe_name}}",
+  "path": "_ingest",
+  "noteContentFormat": "# {{title}}\n\n{{content}}\n",
+  "properties": [
+    {
+      "name": "source_url",
+      "value": "{{url}}",
+      "type": "text"
+    },
+    {
+      "name": "captured_at",
+      "value": "{{time}}",
+      "type": "datetime"
+    }
+  ],
+  "triggers": []
+}
