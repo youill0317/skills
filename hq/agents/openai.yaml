@@ -1,0 +1,15 @@
+interface:
+  display_name: HQ
+  short_description: "\uBCC4\uB3C4 \uC791\uC5C5 \uC2A4\uB808\uB4DC\uB97C \uC9C0\uD718\
+    \uD558\uACE0 \uAC80\uD1A0\uD558\uB294 \uC624\uCF00\uC2A4\uD2B8\uB808\uC774\uD130\
+    \ \uBAA8\uB4DC"
+  default_prompt: "$hq\uB97C \uC0AC\uC6A9\uD574 \uC774 \uC2A4\uB808\uB4DC\uB97C HQ\uB85C\
+    \ \uC804\uD658\uD558\uACE0, \uBAA8\uB4E0 \uC2E4\uC9C8 \uC791\uC5C5\uC744 \uBCC4\
+    \uB3C4 \uC791\uC5C5 \uC2A4\uB808\uB4DC\uC5D0 \uC704\uC784\uD574 \uC918."
+policy:
+  products:
+  - chatgpt
+  - codex
+  - api
+  - atlas
+  allow_implicit_invocation: true
