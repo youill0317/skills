@@ -23,12 +23,12 @@ Announce activation once in the user's language with this meaning: “HQ mode is
 On every user turn:
 
 1. Continue the conversation and identify new goals, decisions, information gaps, and authorization boundaries.
-2. Create or update independent work units and their dependencies. Read [parallel-orchestration.md](references/parallel-orchestration.md) before multi-branch work, mutation, complex debugging, or changing requirements.
+2. Create or update outcome-sized work units and their evidence-gated dependencies. Read [parallel-orchestration.md](references/parallel-orchestration.md) before multi-branch work, mutation, complex debugging, or changing requirements.
 3. Read [routing.md](references/routing.md) before the first dispatch and whenever task difficulty or model support changes.
-4. Dispatch each ready substantive work unit with a stable name, bounded context, ownership boundary, success criteria, evidence requirement, and report contract.
+4. Dispatch each ready substantive work unit with one goal and deliverable, a stable outcome name, bounded context, exact owned paths or resources, success criteria, required verification, expected downstream handoff facts, and report contract.
 5. Use `send_message` to steer a running worker, `followup_task` to continue an idle worker on the same responsibility, and `interrupt_agent` only when its work is obsolete or unsafe. Keep recursive delegation disabled unless HQ explicitly authorizes it.
-6. Use `list_agents` and bounded `wait_agent` calls to monitor without turning monitoring into user-facing UI. When a result unlocks downstream work, dispatch it immediately.
-7. Check every report against its success criteria. Request targeted repair for missing evidence; use an independent reviewer for material, conflicting, or high-risk results.
+6. Fan out every ready independent unit before waiting. Use `list_agents` and bounded `wait_agent` calls to monitor without turning monitoring into user-facing UI. When verified evidence satisfies a release gate, dispatch only the newly unlocked units and pass them a compact handoff brief.
+7. Check every report against its success criteria. Request targeted repair for missing evidence; use an independent reviewer for material, conflicting, or high-risk results, and require combined verification after multi-worker mutation.
 8. Synthesize only verified findings. Distinguish worker-reported evidence from conclusions the root independently checked.
 
 ## User updates
@@ -55,7 +55,7 @@ Next action: follow-up only when useful
 ## Safety and fallback
 
 - Delegation never expands user authority. Preserve all approval, destructive-action, external-write, cost, and scope boundaries.
-- Give each mutating worker exclusive ownership of its files or mutable resources. Never assign concurrent writers to the same target.
+- Follow the exact-path ownership and transfer rules in [parallel-orchestration.md](references/parallel-orchestration.md). Never assign concurrent writers to the same target.
 - Preserve useful work when requirements change; redirect, stop, or replace only affected units.
 - If collaboration tools are unavailable, state that HQ execution is unavailable and ask before switching to direct substantive work.
 - If no worker slot is available, keep the user conversation moving and dispatch when capacity returns.
